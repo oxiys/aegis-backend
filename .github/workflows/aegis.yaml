@@ -32,6 +32,7 @@ jobs:
         with:
           base: ""
           head: HEAD
+          extra_args: --only-verified
 
       - name: Source and dependency scan
         uses: aquasecurity/trivy-action@v0.36.0

@@ -11,7 +11,10 @@ app = Flask(__name__)
 CORS(app)
 logging.basicConfig(level=logging.INFO)
 
-DB_URL = os.environ.get('DATABASE_URL', 'postgresql://aegis:aegis@db:5432/aegis') # trufflehog:ignore
+DB_URL = os.environ.get(
+    'DATABASE_URL',
+    f"postgresql://{os.environ.get('POSTGRES_USER', 'aegis')}:{os.environ.get('POSTGRES_PASSWORD', 'aegis')}@{os.environ.get('POSTGRES_HOST', 'db')}:{os.environ.get('POSTGRES_PORT', '5432')}/{os.environ.get('POSTGRES_DB', 'aegis')}"
+)
 
 
 def get_db():
