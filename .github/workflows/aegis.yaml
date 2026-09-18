@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  IMAGE_NAME: gcrbr/backend
+  IMAGE_NAME: oxiys/backend
 
 jobs:
   security-and-build:
@@ -95,7 +95,7 @@ jobs:
       - name: Checkout the manifest repository
         uses: actions/checkout@v7
         with:
-          repository: gcrbr/aegis-app-manifests
+          repository: oxiys/aegis-app-manifests
           ref: main
           token: ${{ secrets.GITOPS_TOKEN }}
           fetch-depth: 0
